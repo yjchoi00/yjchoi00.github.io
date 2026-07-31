@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youngjun Choi | yjchoi.dev</title>
+    <meta
+      name="description"
+      content="Youngjun Choi (최영준) — BSc Data Science at University College London and undergraduate AI researcher at Sogang University's Network Laboratory. Machine learning, multi-agent systems, and quantitative finance."
+    />
+    <meta name="author" content="Youngjun Choi" />
+    <meta
+      name="keywords"
+      content="Youngjun Choi, 최영준, yjchoi, University College London, UCL, data science, machine learning, multi-agent systems, game theory, quantitative finance, Sogang University"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fbfbfa" />
+    <link rel="canonical" href="https://yjchoi.dev/" />
+
+    <meta property="og:title" content="Youngjun Choi | yjchoi.dev" />
+    <meta
+      property="og:description"
+      content="BSc Data Science at UCL. Undergraduate AI researcher at Sogang University's Network Laboratory."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yjchoi.dev/" />
+    <meta property="og:site_name" content="Youngjun Choi" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="me" href="https://www.linkedin.com/in/youngjun-choi-896694377" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Youngjun Choi",
+        "alternateName": "최영준",
+        "url": "https://yjchoi.dev/",
+        "email": "youngjun.choi.24@ucl.ac.uk",
+        "sameAs": ["https://www.linkedin.com/in/youngjun-choi-896694377"],
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "University College London"
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #fbfbfa;
+        --fg: #1a1a1a;
+        --muted: #6b6b6b;
+        --rule: #e3e3e0;
+        --link: #1a1a1a;
+        --accent: #8a5a2b;
+        --tile: #ffffff;
+        --measure: 46rem;
+      }
+
+      :root[data-theme="dark"] {
+        --bg: #16161a;
+        --fg: #e8e8e6;
+        --muted: #9a9a97;
+        --rule: #2c2c32;
+        --link: #e8e8e6;
+        --accent: #d0a878;
+        --tile: #202027;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #16161a;
+          --fg: #e8e8e6;
+          --muted: #9a9a97;
+          --rule: #2c2c32;
+          --link: #e8e8e6;
+          --accent: #d0a878;
+          --tile: #202027;
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        font-size: 1rem;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .wrap {
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 0 1.5rem 6rem;
+      }
+
+      /* ---------- nav ---------- */
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 1.75rem 1.5rem 0;
+        font-size: 0.9rem;
+      }
+
+      nav .brand {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      nav .brand .tld {
+        color: var(--muted);
+        font-weight: 400;
+      }
+
+      nav .spacer {
+        flex: 1;
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        color: var(--fg);
+      }
+
+      nav .brand a {
+        color: var(--fg);
+      }
+
+      #theme-toggle {
+        background: none;
+        border: 0;
+        padding: 0.15rem 0.3rem;
+        margin: 0;
+        font: inherit;
+        font-size: 1.05rem;
+        line-height: 1;
+        color: var(--muted);
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      #theme-toggle:hover {
+        color: var(--fg);
+      }
+
+      /* ---------- header ---------- */
+
+      header.intro {
+        padding: 3.5rem 0 0;
+      }
+
+      h1 {
+        font-size: 2.1rem;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        font-weight: 600;
+        margin: 0 0 0.4rem;
+      }
+
+      h1 .ko {
+        color: var(--muted);
+        font-weight: 400;
+      }
+
+      .tagline {
+        color: var(--muted);
+        margin: 0 0 1.6rem;
+      }
+
+      .intro p.bio {
+        margin: 0 0 1rem;
+      }
+
+      /* ---------- sections ---------- */
+
+      section {
+        margin-top: 3.25rem;
+      }
+
+      h2 {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 1.25rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .item {
+        display: flex;
+        gap: 0.9rem;
+        margin-bottom: 1.75rem;
+      }
+
+      .item:last-child {
+        margin-bottom: 0;
+      }
+
+      .item-body {
+        flex: 1;
+        min-width: 0;
+      }
+
+      /* logo — transparent PNG/SVG sits directly on the page, no tile */
+      .logo {
+        flex: none;
+        width: 2.6rem;
+        height: 2.6rem;
+        margin-top: 0.15rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--muted);
+        user-select: none;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .item-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.5rem;
+      }
+
+      .item-title {
+        font-weight: 600;
+      }
+
+      .item-meta {
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 0.88rem;
+        white-space: nowrap;
+      }
+
+      .item-sub {
+        color: var(--muted);
+        font-size: 0.94rem;
+        margin-top: 0.1rem;
+      }
+
+      .item p {
+        margin: 0.45rem 0 0;
+      }
+
+      .tech {
+        color: var(--muted);
+        font-size: 0.88rem;
+        margin-top: 0.35rem;
+      }
+
+      /* ---------- contact / footer ---------- */
+
+      .contact a {
+        color: var(--link);
+        text-decoration: none;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .contact a:hover {
+        border-bottom-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .contact-row {
+        display: flex;
+        gap: 0.6rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-label {
+        color: var(--muted);
+        min-width: 5rem;
+        font-size: 0.94rem;
+      }
+
+      footer {
+        margin-top: 4rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--rule);
+        color: var(--muted);
+        font-size: 0.85rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      footer .spacer {
+        flex: 1;
+      }
+
+      @media (max-width: 34rem) {
+        h1 {
+          font-size: 1.7rem;
+        }
+
+        .item-meta {
+          margin-left: 0;
+          width: 100%;
+        }
+
+        header.intro {
+          padding-top: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <span class="brand"><a href="/">yjchoi<span class="tld">.dev</span></a></span>
+      <span class="spacer"></span>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
+    </nav>
+
+    <div class="wrap">
+      <header class="intro">
+        <h1>Youngjun Choi <span class="ko">· 최영준</span></h1>
+        <p class="tagline">BSc Data Science, University College London</p>
+
+        <p class="bio">
+          I am a Data Science undergraduate at University College London, where I
+          achieved First Class in Year 1. I am currently an undergraduate AI
+          researcher at Sogang University's Network Laboratory, working on
+          game-theoretic modelling of strategic interaction — incentive design and
+          equilibrium analysis.
+        </p>
+        <p class="bio">
+          My interests sit at the intersection of machine learning, multi-agent
+          systems, and quantitative finance: agent-based modelling of markets, game
+          theory applied to interacting participants, and LLM agents for research
+          and decision-making.
+        </p>
+      </header>
+
+      <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="item">
+          <span class="logo" data-mono="SG"><img src="logos/sogang.png" alt="Sogang University" /></span>
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">Sogang University</span>
+              <span class="item-meta">Jun 2026 – Oct 2026</span>
+            </div>
+            <div class="item-sub">
+              Undergraduate AI Researcher, Network Laboratory · Seoul
+            </div>
+            <p>
+              Game-theoretic modelling for strategic interaction, including incentive
+              design and equilibrium analysis.
+            </p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="logo" data-mono="S&amp;K"><img src="logos/shinkim.png" alt="Shin &amp; Kim LLC" /></span>
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">Shin &amp; Kim LLC</span>
+              <span class="item-meta">Jun 2026 – Jul 2026</span>
+            </div>
+            <div class="item-sub">Summer Law Clerk · Seoul</div>
+            <p>
+              AI regulation and sovereignty research. Completed attorney training on
+              secured lending, cross-border loans, M&amp;A practice, and cross-border
+              tax.
+            </p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="logo" data-mono="ROK"><img src="logos/army.png" alt="3rd Infantry Division" /></span>
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">Republic of Korea Army</span>
+              <span class="item-meta">Jan 2022 – Jul 2023</span>
+            </div>
+            <div class="item-sub">
+              Sergeant, Electronic Surveillance Equipment Maintenance · 3rd Infantry
+              Division
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="item">
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">Document Reader QA Bot (RAG)</span>
+              <span class="item-meta">2025</span>
+            </div>
+            <div class="tech">Python · LangChain · ChromaDB</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">Metro Network Simulator</span>
+              <span class="item-meta">2025</span>
+            </div>
+            <div class="tech">Python · graph algorithms · simulation modelling</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">Memory-Efficient Text Analysis</span>
+              <span class="item-meta">2025</span>
+            </div>
+            <div class="tech">Python · NLP preprocessing</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">Mathematics Concept Book</span>
+              <span class="item-meta">2018</span>
+            </div>
+            <div class="tech">School-use publication</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+
+        <div class="item">
+          <span class="logo" data-mono="UCL"><img src="logos/ucl.png" alt="University College London" /></span>
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">University College London</span>
+              <span class="item-meta">2025 – 2028</span>
+            </div>
+            <div class="item-sub">BSc Data Science · London</div>
+            <p>First Class in Year 1.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="logo" data-mono="UCL"><img src="logos/ucl.png" alt="University College London" /></span>
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">University College London</span>
+              <span class="item-meta">2024 – 2025</span>
+            </div>
+            <div class="item-sub">
+              Undergraduate Preparatory Certificate for Science &amp; Engineering ·
+              London
+            </div>
+            <p>Mathematics &amp; Biology track. A*A*A*A*, Pass with Distinction.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="logo" data-mono="DK"
+            ><img src="logos/dankook.svg" alt="Dankook University High School"
+          /></span>
+          <div class="item-body">
+            <div class="item-head">
+              <span class="item-title">Dankook University High School</span>
+              <span class="item-meta">2016 – 2019</span>
+            </div>
+            <div class="item-sub">Science track · Seoul</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <a href="mailto:youngjun.choi.24@ucl.ac.uk">youngjun.choi.24@ucl.ac.uk</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">LinkedIn</span>
+          <a
+            href="https://www.linkedin.com/in/youngjun-choi-896694377"
+            rel="me noopener"
+            target="_blank"
+            >linkedin.com/in/youngjun-choi</a
+          >
+        </div>
+        <p class="tech">Full CV available on request.</p>
+      </section>
+
+      <footer>
+        <span>© <span id="year">2026</span> Youngjun Choi</span>
+        <span class="spacer"></span>
+        <span>Seoul ⇄ London</span>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var toggle = document.getElementById("theme-toggle");
+
+        function current() {
+          var stored = null;
+          try {
+            stored = localStorage.getItem("theme");
+          } catch (e) {}
+          if (stored) return stored;
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+
+        function apply(mode) {
+          root.setAttribute("data-theme", mode);
+          toggle.textContent = mode === "dark" ? "☀" : "☾";
+          toggle.setAttribute(
+            "aria-label",
+            mode === "dark" ? "Switch to light mode" : "Switch to dark mode"
+          );
+        }
+
+        apply(current());
+
+        toggle.addEventListener("click", function () {
+          var next =
+            root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          try {
+            localStorage.setItem("theme", next);
+          } catch (e) {}
+          apply(next);
+        });
+
+        document.getElementById("year").textContent =
+          new Date().getFullYear();
+
+        Array.prototype.forEach.call(
+          document.querySelectorAll(".logo img"),
+          function (img) {
+            img.addEventListener("error", function () {
+              var tile = img.parentNode;
+              tile.textContent = tile.getAttribute("data-mono") || "";
+            });
+          }
+        );
+      })();
+    </script>
+  </body>
+</html>

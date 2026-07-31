@@ -1,0 +1,148 @@
+cv:
+  name: Youngjun Choi
+  label: Data Science Undergraduate, UCL
+  email: youngjun.choi.24@ucl.ac.uk
+  location: Seoul, KR / London, UK
+  image: ""
+  summary: BSc Data Science student at UCL interested in machine learning, multi-agent systems, game theory, and quantitative finance.
+
+  social_networks:
+    - network: GitHub
+      username: yjchoi00
+    - network: LinkedIn
+      username: yourlinkedin
+
+  sections:
+    Education:
+      - institution: University College London (UCL)
+        location: London, UK
+        url: https://www.ucl.ac.uk/
+        area: Data Science
+        studyType: BSc
+        start_date: 2025-09
+        end_date: 2028-06
+        highlights:
+          - Achieved First Class in Year 1 (2025–2026).
+
+      - institution: University College London (UCL)
+        location: London, UK
+        url: https://www.ucl.ac.uk/
+        area: Undergraduate Preparatory Certificate for Science & Engineering (UPCSE)
+        studyType: Foundation (A-level equivalent)
+        start_date: 2024-09
+        end_date: 2025-06
+        highlights:
+          - Mathematics & Biology track; A*A*A*A* (Overall 83%, Pass with Distinction).
+
+      - institution: Dankook University High School (단대부고)
+        location: Seoul, South Korea
+        area: Science track
+        studyType: High School Diploma
+        start_date: 2016-03
+        end_date: 2019-02
+        highlights:
+          - Elected Class President (Grade 11).
+          - Founder & President, Advanced Mathematics Exploration Club.
+
+    Experience:
+      - company: Sogang University, Dept. of Computer Science and Engineering
+        position: Undergraduate AI Researcher (Network Laboratory, Prof. Sungwook Kim)
+        location: Seoul, South Korea
+        start_date: 2026-06
+        end_date: 2026-10
+        highlights:
+          - Conducting research on game-theoretic modelling for strategic interaction, including incentive design and equilibrium analysis.
+
+      - company: Shin & Kim LLC (법무법인 세종)
+        position: Summer Law Clerk
+        location: Jongno-gu, Seoul, South Korea
+        start_date: 2026-06
+        end_date: 2026-07
+        highlights:
+          - Researched U.S., EU, and China AI sovereignty policies — technology export controls, investment screening, and domestic AI regulation — and presented a research report to a senior IP attorney ahead of his International Bar Association (IBA) panel.
+          - Prepared a comparative analysis of AI regulatory frameworks across the EU (AI Act), U.S. (executive orders and sector-specific rules), and Korea (AI Basic Act).
+          - Researched and outlined procedures for U.S. litigants seeking testimony from Korean entities under the HCCH 1970 Evidence Convention.
+          - Completed attorney training on secured lending, cross-border loan considerations under Korean law, and M&A practice.
+
+      - company: Republic of Korea Army, The 3rd Infantry Division
+        position: Sergeant — Electronic Surveillance Equipment Maintenance
+        location: Cheorwon, Gangwon-do, South Korea
+        start_date: 2022-01
+        end_date: 2023-07
+        highlights:
+          - Maintained and repaired electro-optical surveillance systems (TOD, NVG) and small arms (K2 rifles, K3 light machine guns), diagnosing faults to ensure operational readiness.
+
+    Projects:
+      - name: Document Reader QA Bot (RAG)
+        date: 2025
+        summary: PDF-based QA assistant that returns retrieval-grounded summaries and answers. (IBM AI Engineering)
+        highlights:
+          - Implemented an end-to-end RAG workflow (load → split → embed → index → retrieve → answer).
+          - Improved answer reliability by grounding responses in retrieved passages rather than parametric memory alone.
+          - "Tech: Python, LangChain, ChromaDB, embedding models."
+
+      - name: Metro Network Simulation and Commuter Travel-Time Analysis
+        date: 2025
+        summary: Object-oriented metro network simulator using weighted graph abstractions. (UCL)
+        highlights:
+          - Computed shortest commuter routes and travel times, including transfer costs and network constraints.
+          - Simulated disruption scenarios (e.g., station closures) and quantified changes in average journey time.
+          - "Tech: Python, OOP, graph algorithms, simulation modelling."
+
+      - name: Memory-Efficient Text Analysis (NLP Mini Project)
+        date: 2025
+        summary: Streaming text-processing pipeline for analyzing large documents without full in-memory loading. (UCL)
+        highlights:
+          - Implemented case-normalized word frequency analysis and long-tail term exploration via configurable thresholds.
+          - Applied the pipeline to 19th-century literary texts sourced from Project Gutenberg.
+          - "Tech: Python, file I/O, basic NLP preprocessing."
+
+      - name: Mathematics Concept Book (School-use Publication)
+        date: 2018
+        summary: Led a student mathematics club as President to compile a concept book aligned with the high-school curriculum.
+        highlights:
+          - "Topics: Geometry & Vectors, Calculus, Probability & Statistics, with selected university-level extensions."
+          - Edited and refined definitions through peer review; added multiple solution approaches per problem.
+
+    Certifications:
+      - name: Data Scientist
+        date: 2025-12
+        issuer: DataCamp
+      - name: AI Engineering Professional Certificate
+        date: 2025-12
+        issuer: IBM
+      - name: AI & ML Engineering
+        date: 2025-12
+        issuer: Microsoft
+      - name: Advanced Data Analytics
+        date: 2025-12
+        issuer: Google
+      - name: 4th Dan Black Belt in Taekwondo
+        date: 2014-02
+        issuer: Kukkiwon
+
+    Skills:
+      - label: Languages
+        details: Python, SQL, R
+      - label: ML / Stats
+        details: Machine Learning (Supervised/Unsupervised), Statistical Analysis, Regression, Predictive Modeling
+      - label: Deep Learning
+        details: PyTorch, Keras, TensorFlow
+      - label: LLM & RAG
+        details: Transformers, LangChain, ChromaDB
+      - label: Tools
+        details: Git, Jupyter, VS Code, MS Office
+
+    Honors & Awards:
+      - name: Learning Plan Execution Award
+        date: 2018
+        issuer: Dankook University High School
+        summary: Awarded among the entire student body (1,243 students) for outstanding self-management and consistency.
+      - name: Calculus Midterm Ranking — 7th of 350
+        date: 2018
+        issuer: Dankook University High School
+        summary: Placed 7th in Calculus among 350 science-track students.
+      - name: Perfect Attendance Award
+        date: 2019
+        issuer: Dankook University High School
+        summary: Zero absences, tardies, or early departures across all three academic years.

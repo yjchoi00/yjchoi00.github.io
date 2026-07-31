@@ -17,6 +17,9 @@
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#fbfbfa" />
     <link rel="canonical" href="https://yjchoi.dev/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="logos/favicon-64.png" />
+    <link rel="apple-touch-icon" href="logos/apple-touch-icon.png" />
 
     <meta property="og:title" content="Youngjun Choi | yjchoi.dev" />
     <meta
@@ -120,13 +123,30 @@
       }
 
       nav .brand {
-        font-weight: 600;
-        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
       }
 
-      nav .brand .tld {
-        color: var(--muted);
-        font-weight: 400;
+      /* The wordmark ships as black-on-white. Rather than editing the file,
+         blend the white away: multiply drops white on a light page, and in
+         dark mode invert flips it to white-on-black so screen drops the black. */
+      nav .brand img {
+        display: block;
+        height: 1.6rem;
+        width: auto;
+        mix-blend-mode: multiply;
+      }
+
+      :root[data-theme="dark"] nav .brand img {
+        filter: invert(1);
+        mix-blend-mode: screen;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) nav .brand img {
+          filter: invert(1);
+          mix-blend-mode: screen;
+        }
       }
 
       nav .spacer {
@@ -339,7 +359,10 @@
 
   <body>
     <nav>
-      <span class="brand"><a href="/">yjchoi<span class="tld">.dev</span></a></span>
+      <span class="brand"
+        ><a href="/" aria-label="Youngjun Choi — home"
+          ><img src="logos/choi-logo.png" alt="Choi" /></a
+      ></span>
       <span class="spacer"></span>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>

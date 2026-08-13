@@ -246,6 +246,12 @@
         display: block;
       }
 
+      /* The triangle covers under half of its square, so at the shared box
+         size it reads smaller than the other marks. Nudge it up to match. */
+      .logo.nudge img {
+        transform: scale(1.14);
+      }
+
       .item-head {
         display: flex;
         flex-wrap: wrap;
@@ -415,7 +421,9 @@
         </div>
 
         <div class="item">
-          <span class="logo" data-mono="ROK"><img src="logos/army.png" alt="3rd Infantry Division" /></span>
+          <span class="logo nudge" data-mono="ROK"
+            ><img src="logos/army.png" alt="3rd Infantry Division"
+          /></span>
           <div class="item-body">
             <div class="item-head">
               <span class="item-title"

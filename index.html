@@ -29,7 +29,18 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://yjchoi.dev/" />
     <meta property="og:site_name" content="Youngjun Choi" />
-    <meta name="twitter:card" content="summary" />
+    <!-- Without an explicit og:image, scrapers pick an image out of the page —
+         which meant the first logo in Experience. Pin the preview instead. -->
+    <meta property="og:image" content="https://yjchoi.dev/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Youngjun Choi — BSc Data Science, University College London"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://yjchoi.dev/og-image.png" />
 
     <link rel="me" href="https://www.linkedin.com/in/youngjun-choi-896694377" />
 

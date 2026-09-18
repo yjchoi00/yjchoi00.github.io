@@ -3,8 +3,9 @@
 Personal site for Youngjun Choi — <https://yjchoi.dev>
 
 A single hand-written static page. No build step, no dependencies, no
-generator: `index.html` contains the markup, the CSS, and the small script for
-the light/dark toggle. Every asset is local, so the page makes zero external
+generator: `index.html` contains the markup, the CSS, and the canvas script that
+draws the animated mesh in the hero. The page is dark only — there is no light
+theme and no toggle. Every asset is local, so the page makes zero external
 requests.
 
 ## Layout

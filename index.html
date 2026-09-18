@@ -14,8 +14,8 @@
       content="Youngjun Choi, 최영준, yjchoi, University College London, UCL, data science, machine learning, multi-agent systems, game theory, quantitative finance, Sogang University"
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#fbfbfa" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#070a1c" />
     <link rel="canonical" href="https://yjchoi.dev/" />
     <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="logos/favicon-64.png" />
@@ -61,37 +61,16 @@
     </script>
 
     <style>
+      /* One theme, dark only. The page itself stays plain; the hero carries the colour. */
       :root {
-        --bg: #fbfbfa;
-        --fg: #1a1a1a;
-        --muted: #6b6b6b;
-        --rule: #e3e3e0;
-        --link: #1a1a1a;
-        --accent: #8a5a2b;
-        --tile: #ffffff;
-        --measure: 46rem;
-      }
-
-      :root[data-theme="dark"] {
-        --bg: #16161a;
+        color-scheme: dark;
+        --bg: #08090d;
         --fg: #e8e8e6;
         --muted: #9a9a97;
-        --rule: #2c2c32;
+        --rule: #24262e;
         --link: #e8e8e6;
         --accent: #d0a878;
-        --tile: #202027;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root:not([data-theme="light"]) {
-          --bg: #16161a;
-          --fg: #e8e8e6;
-          --muted: #9a9a97;
-          --rule: #2c2c32;
-          --link: #e8e8e6;
-          --accent: #d0a878;
-          --tile: #202027;
-        }
+        --measure: 46rem;
       }
 
       *,
@@ -143,23 +122,6 @@
       }
 
       nav a:hover {
-        color: var(--fg);
-      }
-
-      #theme-toggle {
-        background: none;
-        border: 0;
-        padding: 0.15rem 0.3rem;
-        margin: 0;
-        font: inherit;
-        font-size: 1.05rem;
-        line-height: 1;
-        color: var(--muted);
-        cursor: pointer;
-        border-radius: 4px;
-      }
-
-      #theme-toggle:hover {
         color: var(--fg);
       }
 
@@ -352,23 +314,149 @@
           padding-top: 2.5rem;
         }
       }
+
+      /* ---------- hero ---------- */
+
+      /* Dark in both themes: the mesh is drawn as additive light, which only
+         reads against a dark ground. */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        color: #fff;
+        background: radial-gradient(
+          120% 150% at 72% 45%,
+          #061048 0%,
+          #030a34 45%,
+          #02061f 100%
+        );
+      }
+
+      #mesh {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* keeps the name legible where the mesh runs behind it */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          linear-gradient(to bottom, rgba(2, 6, 31, 0.78) 0, rgba(2, 6, 31, 0) 5.5rem),
+          linear-gradient(
+          90deg,
+          rgba(2, 6, 31, 0.86) 0%,
+          rgba(2, 6, 31, 0.7) 34%,
+          rgba(2, 6, 31, 0.28) 56%,
+          rgba(2, 6, 31, 0) 76%
+        );
+      }
+
+      .hero nav a {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .hero nav a:hover {
+        color: #fff;
+      }
+
+      .hero-inner {
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 5rem 1.5rem 5.75rem;
+      }
+
+      .hero h1 {
+        color: #fff;
+        font-size: 2.7rem;
+        margin-bottom: 0.55rem;
+      }
+
+      .hero h1 .ko {
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .hero .tagline {
+        color: rgba(255, 255, 255, 0.78);
+        margin: 0;
+        font-size: 1.05rem;
+      }
+
+      header.intro {
+        padding-top: 2.75rem;
+      }
+
+      @media (max-width: 34rem) {
+        .hero-inner {
+          padding: 3.25rem 1.5rem 3.75rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+      }
+
+      /* the hero melts into the page instead of ending on an edge */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 28%;
+        z-index: -1;
+        pointer-events: none;
+        background: linear-gradient(to bottom, rgba(8, 9, 13, 0), var(--bg));
+      }
+
+      ::selection {
+        background: rgba(120, 170, 255, 0.3);
+      }
+
+      .hero-inner {
+        padding: 6.5rem 1.5rem 8.5rem;
+      }
+
+      @media (max-width: 34rem) {
+        .hero-inner {
+          padding: 3.25rem 1.5rem 10rem;
+        }
+
+        /* on a phone the name runs the full width, so shade the top, not the left */
+        .hero::after {
+          background: linear-gradient(
+            to bottom,
+            rgba(2, 6, 31, 0.86) 0,
+            rgba(2, 6, 31, 0.74) 44%,
+            rgba(2, 6, 31, 0) 70%
+          );
+        }
+      }
     </style>
   </head>
 
   <body>
-    <nav>
-      <span class="spacer"></span>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <button id="theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
-    </nav>
+    <div class="hero">
+      <canvas id="mesh" aria-hidden="true"></canvas>
+      <nav>
+        <span class="spacer"></span>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="hero-inner">
+        <h1>Youngjun Choi <span class="ko">· 최영준</span></h1>
+        <p class="tagline">BSc Data Science, University College London</p>
+      </div>
+    </div>
 
     <div class="wrap">
       <header class="intro">
-        <h1>Youngjun Choi <span class="ko">· 최영준</span></h1>
-        <p class="tagline">BSc Data Science, University College London</p>
-
         <p class="bio">
           I am a Data Science undergraduate at University College London, where I
           achieved First Class in Year 1. I am currently an undergraduate AI
@@ -562,40 +650,6 @@
 
     <script>
       (function () {
-        var root = document.documentElement;
-        var toggle = document.getElementById("theme-toggle");
-
-        function current() {
-          var stored = null;
-          try {
-            stored = localStorage.getItem("theme");
-          } catch (e) {}
-          if (stored) return stored;
-          return window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-        }
-
-        function apply(mode) {
-          root.setAttribute("data-theme", mode);
-          toggle.textContent = mode === "dark" ? "☀" : "☾";
-          toggle.setAttribute(
-            "aria-label",
-            mode === "dark" ? "Switch to light mode" : "Switch to dark mode"
-          );
-        }
-
-        apply(current());
-
-        toggle.addEventListener("click", function () {
-          var next =
-            root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-          try {
-            localStorage.setItem("theme", next);
-          } catch (e) {}
-          apply(next);
-        });
-
         document.getElementById("year").textContent =
           new Date().getFullYear();
 
@@ -608,6 +662,224 @@
             });
           }
         );
+      })();
+    </script>
+
+    <script>
+      /* Hero: a single sheet of coarse mesh — quads, some braced with a diagonal, a node
+         on every vertex — rolling in long slow swells, seen from just above its surface
+         through a lens with a very shallow depth of field. Only a band across the middle
+         is sharp; nearer and farther the lines spread into soft ribbons and the nodes
+         into discs. The camera orbits slowly and never stops; the sheet is round, so the
+         composition holds from every side. Plain canvas, no libraries. */
+      (function () {
+        var canvas = document.getElementById("mesh");
+        if (!canvas || !canvas.getContext) return;
+        var ctx = canvas.getContext("2d");
+        var hero = canvas.parentNode;
+        var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        var RADIUS = 10.5;                        // the sheet, in cells of 1
+        var DIST = 15, ELEV = 0.15, FOCUS = 11.5; // camera distance, elevation, sharp depth
+        var BLUR = 0.19;                          // how fast things leave focus
+        var ORBIT = 0.045;                        // radians per second: a turn every ~140 s
+
+        var W = 0, H = 0, F = 0, cx = 0, cy = 0;
+        var verts = [], segs = [];
+        var t = 0, last = 0, running = false, visible = true;
+        var aimX = 0, aimY = 0, yawOff = 0, elevOff = 0;
+
+        function sprite(stops) {
+          var c = document.createElement("canvas");
+          c.width = c.height = 64;
+          var g = c.getContext("2d");
+          var grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+          stops.forEach(function (s) { grad.addColorStop(s[0], s[1]); });
+          g.fillStyle = grad;
+          g.fillRect(0, 0, 64, 64);
+          return c;
+        }
+
+        var GOLD = sprite([[0, "rgba(255,248,226,1)"], [0.2, "rgba(255,196,84,.98)"],
+                           [0.5, "rgba(255,150,40,.3)"], [1, "rgba(255,130,30,0)"]]);
+        var PALE = sprite([[0, "rgba(255,255,255,1)"], [0.2, "rgba(214,226,255,.92)"],
+                           [0.5, "rgba(120,160,255,.26)"], [1, "rgba(90,130,240,0)"]]);
+        // out of focus, a point becomes a flat disc with a faint rim, like a real lens
+        var DISC_WARM = sprite([[0, "rgba(255,180,108,.8)"], [0.62, "rgba(255,170,100,.74)"],
+                                [0.86, "rgba(255,164,96,.4)"], [1, "rgba(255,160,90,0)"]]);
+        var DISC_ROSE = sprite([[0, "rgba(220,192,236,.78)"], [0.62, "rgba(212,184,230,.72)"],
+                                [0.86, "rgba(204,176,226,.38)"], [1, "rgba(200,170,226,0)"]]);
+
+        function swell(X, Y) {
+          var w = t * 0.3;
+          return 1.55 * Math.sin(X * 0.4 + w)
+               + 1.0 * Math.sin(Y * 0.31 - w * 0.8 + 0.6 * Math.sin(X * 0.21))
+               + 0.5 * Math.sin((X + Y) * 0.52 + w * 1.3);
+        }
+
+        function build() {
+          var n = Math.ceil(RADIUS), at = {}, i, j;
+          verts = []; segs = [];
+          for (j = -n; j <= n; j++) {
+            for (i = -n; i <= n; i++) {
+              var r = Math.sqrt(i * i + j * j);
+              if (r > RADIUS + 0.5) continue;
+              at[i + "," + j] = verts.length;
+              verts.push({
+                X: i + (Math.random() - 0.5) * 0.34, Y: j + (Math.random() - 0.5) * 0.34,
+                rim: Math.max(0, Math.min(1, (RADIUS - r) / 2.2)),   // the sheet thins out at its edge
+                gold: Math.random() < 0.72, size: 0.7 + Math.random() * 0.7,
+                phase: Math.random() * 6.283, px: 0, py: 0, d: 0, coc: 0, z: 0, fade: 0
+              });
+            }
+          }
+          function link(a, b) {
+            if (a === undefined || b === undefined) return;
+            segs.push({ a: verts[a], b: verts[b], hot: Math.random() < 0.2 });
+          }
+          for (j = -n; j <= n; j++) {
+            for (i = -n; i <= n; i++) {
+              var o = at[i + "," + j];
+              if (o === undefined) continue;
+              link(o, at[(i + 1) + "," + j]);
+              link(o, at[i + "," + (j + 1)]);
+              var brace = Math.random();                  // about half the cells get a diagonal
+              if (brace < 0.26) link(o, at[(i + 1) + "," + (j + 1)]);
+              else if (brace < 0.5) link(at[(i + 1) + "," + j], at[i + "," + (j + 1)]);
+            }
+          }
+        }
+
+        function resize() {
+          var dpr = Math.min(window.devicePixelRatio || 1, 2);
+          var w = hero.clientWidth, h = hero.clientHeight;
+          if (!w || !h) return;
+          W = w; H = h;
+          F = 0.95 * Math.max(W, 1000);
+          cx = W * (W < 640 ? 0.5 : 0.64);
+          cy = H * (W < 640 ? 0.8 : 0.64);        // on a phone the sheet drops below the name
+          canvas.width = Math.round(W * dpr);
+          canvas.height = Math.round(H * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          if (!running) draw();
+        }
+
+        function draw() {
+          var yaw = 0.6 + t * ORBIT + yawOff, el = ELEV + elevOff;
+          var cyaw = Math.cos(yaw), syaw = Math.sin(yaw), cel = Math.cos(el), sel = Math.sin(el);
+          var k, v;
+
+          // world (X right, Y away, Z up) -> screen, through a camera raised by ELEV
+          for (k = 0; k < verts.length; k++) {
+            v = verts[k];
+            v.z = swell(v.X, v.Y);
+            var x1 = v.X * cyaw - v.Y * syaw, y1 = v.X * syaw + v.Y * cyaw;
+            var d = DIST + y1 * cel - v.z * sel;
+            v.d = d;
+            v.px = cx + (x1 / d) * F;
+            v.py = cy - ((y1 * sel + v.z * cel) / d) * F;
+            v.coc = Math.abs(1 / d - 1 / FOCUS) * F * BLUR;
+            v.fade = v.rim * Math.max(0, Math.min(1, (d - 3.5) / 2));
+          }
+
+          ctx.clearRect(0, 0, W, H);
+          ctx.globalCompositeOperation = "lighter";
+          ctx.lineCap = "round";
+
+          // lines: buckets[blur][tone]; tone 0 deep blue in the troughs, 1 brighter on the
+          // crests, 2 the occasional bright cyan run
+          var LEVELS = 9, B = [], bl, tone;
+          for (bl = 0; bl < LEVELS; bl++) B.push([[], [], []]);
+          for (k = 0; k < segs.length; k++) {
+            var a = segs[k].a, b = segs[k].b;
+            if (a.fade < 0.03 || b.fade < 0.03) continue;
+            if ((a.px < -80 && b.px < -80) || (a.px > W + 80 && b.px > W + 80) ||
+                (a.py < -80 && b.py < -80) || (a.py > H + 80 && b.py > H + 80)) continue;
+            bl = Math.min(LEVELS - 1, Math.floor((a.coc + b.coc) / 5));
+            tone = segs[k].hot ? 2 : (a.z + b.z) > 1.4 ? 1 : 0;
+            B[bl][tone].push(a.px, a.py, b.px, b.py, Math.min(a.fade, b.fade));
+          }
+          var INK = ["30,98,226", "52,140,250", "96,206,255"], STRENGTH = [0.62, 0.78, 1];
+          for (bl = 0; bl < LEVELS; bl++) {
+            var spreadPx = bl * 2.6;                    // how wide this much blur smears a line
+            for (tone = 0; tone < 3; tone++) {
+              var q = B[bl][tone];
+              if (!q.length) continue;
+              // a soft wide stroke under a narrower one stands in for a blurred line; the
+              // light in a line is conserved, so the wider it smears the fainter it gets
+              for (var pass = 0; pass < 2; pass++) {
+                var width = pass ? 1.1 + spreadPx * 0.5 : 1.6 + spreadPx * 1.15;
+                var alpha = STRENGTH[tone] * (pass ? 0.8 : 0.34) / (1 + spreadPx * (pass ? 0.22 : 0.1));
+                for (var half = 0; half < 2; half++) {  // edge of the sheet drawn fainter
+                  ctx.lineWidth = width;
+                  ctx.strokeStyle = "rgba(" + INK[tone] + "," + (alpha * (half ? 1 : 0.4)).toFixed(3) + ")";
+                  ctx.beginPath();
+                  for (k = 0; k < q.length; k += 5) {
+                    if ((q[k + 4] > 0.6) === !!half) { ctx.moveTo(q[k], q[k + 1]); ctx.lineTo(q[k + 2], q[k + 3]); }
+                  }
+                  ctx.stroke();
+                }
+              }
+            }
+          }
+
+          // a node on every vertex
+          for (k = 0; k < verts.length; k++) {
+            v = verts[k];
+            if (v.fade < 0.05) continue;
+            var base = (v.size * F / v.d) * 0.036, glow = 0.8 + 0.2 * Math.sin(t * 1.1 + v.phase), r, img;
+            if (v.coc > base * 1.3) {
+              r = base * 0.9 + v.coc * 1.05;
+              img = v.gold && v.phase > 3.4 ? DISC_WARM : DISC_ROSE;
+              ctx.globalAlpha = Math.min(1, (0.5 / (1 + v.coc * 0.035)) * glow * v.fade);
+            } else {
+              r = base * 2.5 + v.coc;
+              img = v.gold ? GOLD : PALE;
+              ctx.globalAlpha = Math.min(1, glow * v.fade);
+            }
+            if (v.px < -r || v.px > W + r || v.py < -r || v.py > H + r) continue;
+            ctx.drawImage(img, v.px - r, v.py - r, r * 2, r * 2);
+          }
+          ctx.globalAlpha = 1;
+          ctx.globalCompositeOperation = "source-over";
+        }
+
+        function frame(now) {
+          if (!running) return;
+          var dt = Math.min(50, now - (last || now)) / 1000;
+          last = now;
+          t += dt;
+          yawOff += (aimX * 0.14 - yawOff) * 0.04;
+          elevOff += (aimY * 0.04 - elevOff) * 0.04;
+          draw();
+          requestAnimationFrame(frame);
+        }
+
+        function sync() {
+          var should = !still && visible && !document.hidden;
+          if (should && !running) { running = true; last = 0; requestAnimationFrame(frame); }
+          else if (!should) running = false;
+        }
+
+        hero.addEventListener("pointermove", function (e) {
+          var r = hero.getBoundingClientRect();
+          aimX = (e.clientX - r.left) / r.width - 0.5;
+          aimY = (e.clientY - r.top) / r.height - 0.5;
+        });
+        document.addEventListener("visibilitychange", sync);
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+            sync();
+          }).observe(hero);
+        }
+        if ("ResizeObserver" in window) new ResizeObserver(resize).observe(hero);
+        else window.addEventListener("resize", resize);
+
+        build();
+        t = 6;
+        resize();
+        sync();
       })();
     </script>
   </body>

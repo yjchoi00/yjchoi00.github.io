@@ -402,14 +402,14 @@
         content: "";
         position: absolute;
         inset: auto 0 0 0;
-        height: 28%;
+        height: 36%;
         z-index: -1;
         pointer-events: none;
         background: linear-gradient(to bottom, rgba(8, 9, 13, 0), var(--bg));
       }
 
       ::selection {
-        background: rgba(232, 232, 230, 0.25);
+        background: rgba(150, 176, 220, 0.3);
       }
 
       .hero-inner {
@@ -672,7 +672,7 @@
 
         var NX = 96, NY = 56;        // grid cells across and away
         var SPAN = 2.4;              // half-width of the sheet, camera units
-        var DEPTH = 1.5;             // half-depth
+        var DEPTH = 1.2;             // half-depth
         var CAM = 1.25, ELEV = 0.5;   // camera distance and height above the sheet
         var PEAK = 0.26;             // ridge height
         var DRIFT = 0.06;            // how fast the ridge moves
@@ -711,7 +711,7 @@
           W = w; H = h;
           F = 0.6 * Math.max(W, 900);
           cx = W * 0.5;
-          cy = H * (W < 640 ? 0.42 : 0.1);
+          cy = H * (W < 640 ? 0.4 : 0.04);
           canvas.width = Math.round(W * dpr);
           canvas.height = Math.round(H * dpr);
           ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -737,7 +737,7 @@
           ctx.clearRect(0, 0, W, H);
           ctx.lineWidth = 1;
           ctx.lineJoin = "round";
-          ctx.strokeStyle = "rgba(232,232,230,0.32)";
+          ctx.strokeStyle = "rgba(150,176,220,0.36)";
           ctx.beginPath();
           for (j = 0; j <= NY; j++) {                   // rows, across
             k = j * (NX + 1);
